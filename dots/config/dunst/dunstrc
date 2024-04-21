@@ -1,0 +1,40 @@
+[global]
+	scale=1
+	width=(0, 500)
+	height=600
+	origin=top-center
+	offset=0x5
+	padding=5
+	horizontal_padding=5
+	font=Fira Code 16
+	hide_duplicate_count=true
+	browser=/usr/bin/firefox -new-tab
+	progress_bar_frame_width=0
+	progress_bar_min_width=120
+	progress_bar_max_width=500
+	foreground="#fffdfa"
+	background="#1c1c1c"
+	icon_theme=Icons
+
+[urgency_low]
+	frame_color="#a830a8"
+	highlight="#a830a8"
+	timeout=3
+
+[urgency_normal]
+	frame_color="#54a015"
+	highlight="#54a015"
+	timeout=5
+
+[urgency_critical]
+	frame_color="#f03522"
+	highlight="#f03522"
+	timeout=0
+
+[signal]
+	appname=signal
+	format="<b>%s</b>"
+	frame_color="#a830a8"
+	# progressbar color
+	highlight="#54a015"
+	timeout=1

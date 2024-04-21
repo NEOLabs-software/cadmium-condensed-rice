@@ -1,0 +1,15 @@
+#!/usr/bin/bash
+# CPU usage script
+# FontAwesome icons fitting:  
+
+while read -ra line; do
+	[[ ${line[0]} == '%Cpu(s):' ]] && PCT=$(bc <<< \
+		"scale=1;${line[1]/,/.}+${line[3]/,/.}+${line[5]/,/.}") && break
+done <<< "$(top -bn 1)"
+
+PCT=${PCT/#./0.}
+
+TEXT=" <b>$PCT%</b>"
+echo "$TEXT
+$TEXT"
+~/.config/i3blocks/colorcode $((100 - ${PCT%.*}))

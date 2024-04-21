@@ -1,0 +1,38 @@
+## Theme
+set $bgt #10101088
+set $bor #00000000
+set $ac #11aa00
+set $foc #bb33aa
+set $con #40a3e0
+set $err #f03522
+set $bg #000000
+set $fg #ffffff
+set $border 4
+set $gaps 16
+set $setbg ~/.config/sway/bh.sh
+
+set $Mod Mod4
+set $Alt Mod1
+
+## Workspaces
+# simple formatting options
+#set $w0 <span color=\"#888\"><b>1: </b></span>
+set $w1 1:
+set $w2 2:
+set $w3 3:
+set $w4 4:
+set $w5 5:
+set $w6 6:
+set $w7 7:
+set $w8 8:
+set $w9 9:
+set $wBrowser $w3
+set $wMsg $w4
+set $wMedia $w7
+set $wGame $w9
+set $wCode $w5
+
+# Outputs
+set $d1 eDP-1
+set $d2 DP-1
+set $dMedia "Philips Consumer Electronics Company PHL 559M1RYV Unknown"

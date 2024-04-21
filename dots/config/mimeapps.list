@@ -1,0 +1,8 @@
+[Default Applications]
+audio/mpeg=parole.desktop
+image/jpeg=feh.desktop
+image/png=feh.desktop
+image/ico=feh.desktop
+
+[Added Associations]
+audio/mpeg=org.xfce.Parole.desktop;

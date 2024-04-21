@@ -1,0 +1,49 @@
+# set background
+exec $setbg
+
+exec {
+	gsettings set org.gnome.desktop.interface icon-theme 'Icons'
+	gsettings set org.gnome.desktop.interface cursor-theme 'Sweet-cursors'
+	gsettings set org.gnome.desktop.interface cursor-size 32
+	gsettings set org.gnome.desktop.interface font-name 'Nova Square 15'
+	swayidle timeout 300 'swaymsg output \* power off' resume 'swaymsg output \* power on' &>/dev/null
+	wlsunset -l 50 -L 14.5 &>/dev/null
+	which cpupower-gui &>/dev/null && cpupower-gui pr \
+		$([[ $(acpi) =~ D ]] && echo Powersave || echo Optimal) &>/dev/null
+}
+set $signal ~/.config/i3blocks/signal
+exec_always $signal wp
+
+seat seat0 xcursor_theme 'Sweet-cursors' 32
+
+# seat seat0 attach 1:1:AT_Translated_Set_2_keyboard
+# seat seat0 attach 1267:12717:ELAN2841:00_04F3:31AD_Touchpad
+# seat seat0 attach 1267:12717:ELAN2841:00_04F3:31AD_Mouse
+# seat seat0 attach 0:1:Power_Button
+# seat seat0 attach 0:5:Lid_Switch
+# seat seat0 attach 0:6:Video_Bus
+# seat seat0 attach 5075:22267:Integrated_Camera:_Integrated_C
+# seat seat0 attach 5075:22267:Integrated_Camera:_Integrated_I
+# seat seat1 fallback true
+# bindcode --whole-window 274 seat - cursor press BTN_LEFT, seat - cursor release BTN_LEFT
+seat * {
+	hide_cursor 5000
+	hide_cursor when-typing enable
+}
+
+## Sway specific
+bindswitch --locked lid:on exec [[ -f /tmp/nolidsleep ]] && swaymsg 'output $d1 power off' || systemctl suspend
+bindswitch --locked lid:off exec sleep 1 && swaymsg 'output $d1 power on'
+
+# Devices
+input type:keyboard {
+	xkb_layout us,cz
+	xkb_options caps:escape,compose:102
+	repeat_delay 225
+	repeat_rate 40
+}
+input type:touchpad {
+	tap enabled
+	# natural_scroll enabled
+	dwt enabled
+}
