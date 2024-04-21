@@ -1,6 +1,0 @@
-#!/usr/bin/bash
-if [[ $button && $button != 2 ]]; then
-	((button == 1 || button == 4)) && backlight + 10 > /dev/null || backlight - 10 > /dev/null
-fi
-
-echo " $(backlight)%"
